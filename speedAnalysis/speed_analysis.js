@@ -24,10 +24,12 @@ document.getElementById("userInput").ariaReadOnly = true;
 // calculate time elapsed and the word per min
 var timeElapsed = (endTime - startTime) / 1000; //in sec
 var userTypedText = document.getElementById("userInput").value;
+var TOtalLength = userTypedText.length;
 
 var typedWords = userTypedText.split(/\s+/).filter(function (word) {
     return word !== "";
 }).length;
+
 
 var wpm = 0;
 
@@ -38,6 +40,7 @@ if (timeElapsed !== 0 && !isNaN(typedWords)) {
     // Display the results
      var outputDiv = document.getElementById("output");
     outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
+     "<p>Total Length: " + TOtalLength + "</p>" +
      "<p>Words Typed: " + typedWords + "</p>" +
      "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
      "<p>Words Per Minute (WPM): " + wpm + "</p>";
